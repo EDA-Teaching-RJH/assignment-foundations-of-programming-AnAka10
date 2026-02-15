@@ -1,4 +1,4 @@
-n = ["Picard", "Riker", "Data", "Worf"]
+n = ["Picard", "Riker", "Data", "Worf"] #1st attempt
 r = ["Captain", "Commander", "Lt. Commander", "Lieutenant"]
 d = ["Command", "Command", "Operations", "Security"]
 
