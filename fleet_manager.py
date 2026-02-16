@@ -1,6 +1,6 @@
 # fleet_manager.py
 
-# --- 1. INITIALIZE DATABASE (4 Marks) ---
+# --- 1. INITIALIZE DATABASE  ---
 def init_database():
     """
     Returns 4 parallel lists pre-populated with 5 Star Trek characters.
@@ -12,7 +12,7 @@ def init_database():
     
     return names, ranks, divs, ids
 
-# --- 2. DISPLAY MENU (4 Marks) ---
+# --- 2. DISPLAY MENU  ---
 def display_menu():
     """
     Prints the options and returns the user's choice.
@@ -30,7 +30,7 @@ def display_menu():
     choice = input("Select an option: ")
     return choice
 
-# --- 6. DISPLAY ROSTER (4 Marks) ---
+# --- 6. DISPLAY ROSTER  ---
 def display_roster(names, ranks, divs, ids):
     """
     Iterates through the lists and prints a formatted table.
@@ -48,7 +48,7 @@ def display_roster(names, ranks, divs, ids):
 
 
 
-# --- 3. ADD MEMBER (4 Marks) ---
+# --- 3. ADD MEMBER  ---
 def add_member(names, ranks, divs, ids):
     print("\n--- Add New Officer ---")
     new_id = input("Enter new ID: ")
@@ -77,7 +77,7 @@ def add_member(names, ranks, divs, ids):
     print("Officer added to database.")
 
 
-# --- 4. REMOVE MEMBER (4 Marks) ---
+# --- 4. REMOVE MEMBER  ---
 def remove_member(names, ranks, divs, ids):
     print("\n--- Remove Officer ---")
     target_id = input("Enter ID to remove: ")
@@ -96,7 +96,7 @@ def remove_member(names, ranks, divs, ids):
         print("Error: ID not found.")
 
 
-# --- 5. UPDATE RANK (4 Marks) ---
+# --- 5. UPDATE RANK  ---
 def update_rank(names, ranks, ids):
     print("\n--- Update Rank ---")
     target_id = input("Enter ID to update: ")
@@ -112,7 +112,7 @@ def update_rank(names, ranks, ids):
         print("Error: ID not found.")
 
 
-        # --- 7. SEARCH CREW (4 Marks) ---
+        # --- 7. SEARCH CREW  ---
 def search_crew(names, ranks, divs, ids):
     term = input("Enter search term (name): ").lower()
     print("\n--- Search Results ---")
@@ -126,7 +126,7 @@ def search_crew(names, ranks, divs, ids):
     if not found:
         print("No matches found.")
 
-# --- 8. FILTER BY DIVISION (4 Marks) ---
+# --- 8. FILTER BY DIVISION  ---
 def filter_by_division(names, divs):
     target_div = input("Enter Division (Command, Operations, Security): ")
     print(f"\n--- {target_div} Division ---")
@@ -140,7 +140,7 @@ def filter_by_division(names, divs):
     if not found:
         print("No officers found in that division.")
 
-# --- 9. CALCULATE PAYROLL (4 Marks) ---
+# --- 9. CALCULATE PAYROLL  ---
 def calculate_payroll(ranks):
     total_cost = 0
     
@@ -158,7 +158,7 @@ def calculate_payroll(ranks):
             
     return total_cost
 
-# --- 10. COUNT OFFICERS (4 Marks) ---
+# --- 10. COUNT OFFICERS  ---
 def count_officers(ranks):
     count = 0
     for rank in ranks:
