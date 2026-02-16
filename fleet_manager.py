@@ -111,34 +111,105 @@ def update_rank(names, ranks, ids):
     else:
         print("Error: ID not found.")
 
+
+        # --- 7. SEARCH CREW (4 Marks) ---
+def search_crew(names, ranks, divs, ids):
+    term = input("Enter search term (name): ").lower()
+    print("\n--- Search Results ---")
+    found = False
+    
+    for i in range(len(names)):
+        if term in names[i].lower():
+            print(f"Found: {names[i]} | Rank: {ranks[i]} | ID: {ids[i]}")
+            found = True
+            
+    if not found:
+        print("No matches found.")
+
+# --- 8. FILTER BY DIVISION (4 Marks) ---
+def filter_by_division(names, divs):
+    target_div = input("Enter Division (Command, Operations, Security): ")
+    print(f"\n--- {target_div} Division ---")
+    
+    found = False
+    for i in range(len(divs)):
+        if divs[i] == target_div:
+            print(f"- {names[i]}")
+            found = True
+            
+    if not found:
+        print("No officers found in that division.")
+
+# --- 9. CALCULATE PAYROLL (4 Marks) ---
+def calculate_payroll(ranks):
+    total_cost = 0
+    
+    for rank in ranks:
+        if rank == "Captain":
+            total_cost += 1000
+        elif rank == "Commander":
+            total_cost += 800
+        elif rank == "Lt. Commander":
+            total_cost += 600
+        elif rank == "Lieutenant":
+            total_cost += 400
+        elif rank == "Ensign":
+            total_cost += 200
+            
+    return total_cost
+
+# --- 10. COUNT OFFICERS (4 Marks) ---
+def count_officers(ranks):
+    count = 0
+    for rank in ranks:
+        if rank == "Captain" or rank == "Commander":
+            count += 1
+    return count
+
 def main():
     # 1. Initialize the parallel lists
     names, ranks, divs, ids = init_database()
     
     print("System Booting...")
 
+    
+
     while True:
-        # 2. Show menu and get choice
         choice = display_menu()
 
         if choice == "1":
             display_roster(names, ranks, divs, ids)
-
+            
         elif choice == "2":
             add_member(names, ranks, divs, ids)
-
+            
         elif choice == "3":
             remove_member(names, ranks, divs, ids)
-
+            
         elif choice == "4":
             update_rank(names, ranks, ids)
             
+        elif choice == "5":
+            search_crew(names, ranks, divs, ids)
+            
+        elif choice == "6":
+            filter_by_division(names, divs)
+            
+        elif choice == "7":
+            # Call the analysis functions
+            cost = calculate_payroll(ranks)
+            officers = count_officers(ranks)
+            
+            print(f"\n--- Fleet Analysis ---")
+            print(f"Total Monthly Payroll: {cost} Credits")
+            print(f"High-Ranking Officers (Capt/Cmdr): {officers}")
+
         elif choice == "8":
             print("Exiting System.")
             break
             
         else:
-            print("Feature coming soon...")
+            print("Invalid Option.")
 
 # Run the program
 if __name__ == "__main__":
