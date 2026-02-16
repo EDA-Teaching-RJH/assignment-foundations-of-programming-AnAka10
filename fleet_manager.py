@@ -1,6 +1,6 @@
 # fleet_manager.py
 
-# --- 1. INITIALIZE DATABASE  ---
+# --- 1. INITIALISE DATABASE  ---
 def init_database():
     """
     Returns 4 parallel lists pre-populated with 5 Star Trek characters.
@@ -167,7 +167,7 @@ def count_officers(ranks):
     return count
 
 def main():
-    # 1. Initialize the parallel lists
+    # 1. Initialise the parallel lists
     names, ranks, divs, ids = init_database()
     
     print("System Booting...")
