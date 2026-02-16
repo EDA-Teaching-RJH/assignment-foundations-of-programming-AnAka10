@@ -42,6 +42,75 @@ def display_roster(names, ranks, divs, ids):
         print(f"{ids[i]:<8} | {names[i]:<20} | {ranks[i]:<15} | {divs[i]}")
 
 # --- MAIN PROGRAM LOOP ---
+
+
+
+
+
+
+# --- 3. ADD MEMBER (4 Marks) ---
+def add_member(names, ranks, divs, ids):
+    print("\n--- Add New Officer ---")
+    new_id = input("Enter new ID: ")
+    
+    # Validation: Check if ID is unique
+    if new_id in ids:
+        print("Error: That ID already exists.")
+        return # Stop the function here
+        
+    new_name = input("Enter Name: ")
+    new_rank = input("Enter Rank: ")
+    
+    # Validation: Check for valid TNG rank
+    valid_ranks = ["Captain", "Commander", "Lt. Commander", "Lieutenant", "Ensign"]
+    if new_rank not in valid_ranks:
+        print("Error: Invalid Rank. Must be standard Starfleet rank.")
+        return
+
+    new_div = input("Enter Division: ")
+
+    # Append to ALL 4 lists to keep them parallel
+    ids.append(new_id)
+    names.append(new_name)
+    ranks.append(new_rank)
+    divs.append(new_div)
+    print("Officer added to database.")
+
+
+# --- 4. REMOVE MEMBER (4 Marks) ---
+def remove_member(names, ranks, divs, ids):
+    print("\n--- Remove Officer ---")
+    target_id = input("Enter ID to remove: ")
+    
+    if target_id in ids:
+        # Find the index where this ID lives
+        idx = ids.index(target_id)
+        
+        # Remove that index from ALL lists
+        ids.pop(idx)
+        names.pop(idx)
+        ranks.pop(idx)
+        divs.pop(idx)
+        print("Officer removed.")
+    else:
+        print("Error: ID not found.")
+
+
+# --- 5. UPDATE RANK (4 Marks) ---
+def update_rank(names, ranks, ids):
+    print("\n--- Update Rank ---")
+    target_id = input("Enter ID to update: ")
+    
+    if target_id in ids:
+        idx = ids.index(target_id)
+        print(f"Current Rank for {names[idx]}: {ranks[idx]}")
+        
+        new_rank = input("Enter new rank: ")
+        ranks[idx] = new_rank # Update only the rank list
+        print("Rank updated.")
+    else:
+        print("Error: ID not found.")
+
 def main():
     # 1. Initialize the parallel lists
     names, ranks, divs, ids = init_database()
@@ -54,6 +123,15 @@ def main():
 
         if choice == "1":
             display_roster(names, ranks, divs, ids)
+
+        elif choice == "2":
+            add_member(names, ranks, divs, ids)
+
+        elif choice == "3":
+            remove_member(names, ranks, divs, ids)
+
+        elif choice == "4":
+            update_rank(names, ranks, ids)
             
         elif choice == "8":
             print("Exiting System.")
