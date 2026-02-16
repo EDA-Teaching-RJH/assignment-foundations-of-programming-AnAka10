@@ -112,7 +112,7 @@ def update_rank(names, ranks, ids):
         print("Error: ID not found.")
 
 
-        # --- 7. SEARCH CREW  ---
+# --- 7. SEARCH CREW  ---
 def search_crew(names, ranks, divs, ids):
     term = input("Enter search term (name): ").lower()
     print("\n--- Search Results ---")
